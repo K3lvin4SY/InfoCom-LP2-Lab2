@@ -40,10 +40,10 @@ def map():
 @socket.on('get_location')
 def get_location():
     while True:
-        #get your longitude and latitude from the Redis server
-        # ====================================================
-        longitude = None
-        latitude = None
+        #get your longitude and latitude from the Redis server [X]
+        # ==================================================== 
+        longitude = redis_server.get('longitude').decode()
+        latitude = redis_server.get('latitude').decode()
         # ====================================================
         x_svg, y_svg = translate((longitude, latitude))
         emit('get_location', (x_svg, y_svg))

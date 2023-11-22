@@ -20,7 +20,12 @@ redis_server.set('latitude', 55.71106)
 # 3. write the updated data to the database
 # ===============================================
 def moveDrone(d_long, d_la):
-    pass
+    longitude = redis_server.get('longitude').decode()
+    latitude = redis_server.get('latitude').decode()
+
+    redis_server.set('longitude', longitude+d_long)
+    redis_server.set('latitude', latitude+d_la)
+
 # ===============================================
 
 @app.route('/drone', methods=['POST'])
