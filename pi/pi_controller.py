@@ -10,19 +10,19 @@ def get_direction():
     d_la = 0
     send_vel = False
     for event in sense.stick.get_events():
-        if event =='left':
+        if event.direction =='left':
             send_vel = True
             d_long = -1
             d_la = 0
-        elif event == 'right':
+        elif event.direction == 'right':
             send_vel = True
             d_long = 1
             d_la = 0
-        elif event =='up':
+        elif event.direction =='up':
             send_vel = True
             d_long = 0
             d_la = 1
-        elif event == 'down':
+        elif event.direction == 'down':
             send_vel = True
             d_long = 0
             d_la = -1
